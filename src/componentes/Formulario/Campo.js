@@ -7,9 +7,11 @@ const campo = (props) => {
         case 'select':
             input = <select {...props.especificacao.atributos}>
                 { props.especificacao.opcoes.map((opt, i)=>{
-                    return(<option key={opt.value + i} value={opt.value}>
+                    return(
+                        <option key={opt.value + i} value={opt.value}>
                             {opt.legend}
-                        </option>);
+                        </option>
+                    );
                 })}
             </select>;
             break;
