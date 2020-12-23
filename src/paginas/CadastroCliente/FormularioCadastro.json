@@ -1,0 +1,17 @@
+{
+    "titulo": "Formulário de Cadastro",
+    "campos": [
+        { "label": "Nome", "type": "text", "atributos":
+            {"id": "name", "name": "name", "required": "required"}
+        },
+        { "label": "E-mail", "type": "email", "atributos":
+            {"id": "email", "name": "email", "required": "required"}
+        },
+        { "label": "CPF", "type": "text", "atributos":
+            {"id": "cpf", "name": "cpf", "placeholder": "000.000.000-00"}
+        },
+        { "label": "Telefone", "type": "tel", "atributos":
+            {"id": "phone", "name": "phone", "placeholder": "(000) 00000-0000", "required": "required"}
+        }
+    ]
+}

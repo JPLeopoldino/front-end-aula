@@ -1,20 +1,43 @@
-import Formulario from './componentes/Formulario/Formulario';
-import Perfil from './componentes/Perfil/Perfil';
-import FormCadastro from './FormularioCadastro.json';
-import PerfilDados from './perfil.json';
-import FotoPerfil from './assets/foto.jpg';
+import React, { Component } from 'react';
+import { BrowserRouter } from 'react-router-dom'
+import ClientContext from './context/ClientContext';
+import Routes from './Routes';
+import HeaderPage from './componentes/HeaderPage/HeaderPage';
 
-function App() {
-  return (
-    <div className="App">
-      <div>Cabeçalho</div>
+class App extends Component{
+  state = {
+    client: {
+      name: '',
+      cpf: '',
+      email: '',
+      phone: ''
+    }
+  }
 
-      {/* <Formulario info={FormCadastro} /> */}
-      <Perfil foto={FotoPerfil} pessoais={PerfilDados} />
+  handleChangeClient = (event) =>{
+    const updateClient = {...this.state.client};
+    updateClient[event.target.name] = event.target.value;
+    this.setState({client: updateClient});
+  }
 
-      <div>Rodapé</div>
-    </div>
-  );
+  render(){
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <ClientContext.Provider 
+            value={{
+              client: this.state.client,
+              change: this.handleChangeClient
+            }}
+          >
+            <HeaderPage />
+            <Routes />
+            <div>Rodapé</div>
+          </ClientContext.Provider>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;
