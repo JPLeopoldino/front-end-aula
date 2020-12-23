@@ -7,7 +7,9 @@ const clientContext = React.createContext({
         email: '',
         phone: ''
     },
-    change: () => {}
+    products: [],
+    change: () => {},
+    create: () => {}
 });
 
 export default clientContext
